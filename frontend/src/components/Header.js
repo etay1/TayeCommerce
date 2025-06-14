@@ -1,9 +1,5 @@
-import Container from '../../node_modules/react-bootstrap/Container';
-import Nav from '../../node_modules/react-bootstrap/Nav';
-import Navbar from '../../node_modules/react-bootstrap/Navbar';
-import NavDropdown from '../../node_modules/react-bootstrap/NavDropdown';
-import Form from '../../node_modules/react-bootstrap/Form';
-import Button from '../../node_modules/react-bootstrap/Button';
+import { Container, Nav, Navbar, NavDropdown, Form, Button } from 'react-bootstrap';
+
 
 function Header() {
   return (
