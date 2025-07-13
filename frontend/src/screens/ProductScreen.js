@@ -14,7 +14,18 @@ function ProductScreen() {
     
       <Row>
         <Col md={6}>
-         <Image src={product.image} alt={product.name} fluid/>
+         <Image 
+           src={product.image} 
+           alt={product.name} 
+           fluid
+           style={{
+             width: '100%',
+             height: '50vh',
+             minHeight: '20rem',
+             objectFit: 'cover',
+             objectPosition: 'center'
+           }}
+         />
         </Col>
         <Col md={3}>
             <Card>
