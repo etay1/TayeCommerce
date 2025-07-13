@@ -65,8 +65,12 @@ function ProductScreen() {
                   </Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
-                <Button className='btn-block' type='button' disabled={product.countInStock === 0}>
+              <ListGroup.Item style={{ display: 'flex', justifyContent: 'center' }}>
+                <Button 
+                  type='button' 
+                  disabled={product.countInStock === 0}
+                  style={{ width: '80%' }}
+                >
                   Add to Cart
                 </Button>
               </ListGroup.Item>
