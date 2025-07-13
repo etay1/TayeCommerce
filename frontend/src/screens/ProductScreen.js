@@ -1,9 +1,85 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Row, Col, Image, ListGroup, Button, Card } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
+import Rating from '../components/Rating'
+import products from '../products'
 
 function ProductScreen() {
+  const { id } = useParams()
+  const product = products.find((p) => p._id === id)
   return (
     <div>
-        Product
+      <Link to='/'className='btn btn-light my-3'>Go Back</Link>
+    
+      <Row>
+        <Col md={6}>
+         <Image 
+           src={product.image} 
+           alt={product.name} 
+           fluid
+           style={{
+             width: '100%',
+             height: '50vh',
+             minHeight: '20rem',
+             objectFit: 'cover',
+             objectPosition: 'center'
+           }}
+         />
+        </Col>
+        <Col md={3}>
+            <Card>
+                <ListGroup variant="flush">
+                    <ListGroup.Item>
+                      <h3>{product.name}</h3>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Rating value={product.rating} text={`${product.numReviews} reviews`} color={'#f8e825'}/>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      Price: ${product.price}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      Description: <br />{product.description}
+                    </ListGroup.Item>
+                </ListGroup>
+            </Card>
+        </Col>
+        
+        <Col md={3}>
+          <Card>
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <Row>
+                  <Col>Price:</Col>
+                  <Col>
+                    <strong>${product.price}</strong>  
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col>Status:</Col>
+                  <Col>
+                    {product.countInStock > 0 ? 'In stock' :  'Out of stock'}
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item style={{ display: 'flex', justifyContent: 'center' }}>
+                <Button 
+                  type='button' 
+                  disabled={product.countInStock === 0}
+                  style={{ width: '80%' }}
+                >
+                  Add to Cart
+                </Button>
+              </ListGroup.Item>
+
+            </ListGroup>
+          </Card>
+        </Col>
+
+      </Row>
     </div>
   )
 }
