@@ -13,7 +13,7 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
-            <Route path="/product/:id" element={<ProductScreen />} />
+            <Route path="/product" element={<ProductScreen />} />
           </Routes>
         </Container>
       </main>
@@ -21,5 +21,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
